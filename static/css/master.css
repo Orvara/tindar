@@ -1,0 +1,20 @@
+h1 {
+  color: green;
+}
+
+body {
+  background-color: #F1FAEE;
+}
+
+#forsidumynd {
+  display:block;
+  width: 80%;
+  position: relative;
+  top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+li {
+  font-size: 22px;
+}
