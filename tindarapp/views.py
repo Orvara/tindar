@@ -60,6 +60,14 @@ def showform(request):
     if form.is_valid():
         form.save()
 
-    context= {'form': form }
 
-    return render(request, 'tindarapp/pantanir.html', context)
+    # EMAIL
+        EMAIL_HOST_USER = 'orvarand@gmail.com'
+        subject = form.cleaned_data['subject']
+        message = 'Nafn: ' + form.cleaned_data['name'] +'\nEmail: ' + form.cleaned_data['from_email']  + '\nTitill:' + form.cleaned_data['subject'] + '\nSkilaboð:' + form.cleaned_data['message']
+        recepient = str(form['from_email'].value())
+        send_mail(subject,message, recepient, [EMAIL_HOST_USER] , fail_silently = False)
+    # else:
+    #     return render(request, 'tindarapp/pantanir.html')
+    context= {'form': form }
+    return render(request, 'tindarapp/thanks.html', context)
