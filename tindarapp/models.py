@@ -2,9 +2,15 @@ from django.db import models
 from django.core.urlresolvers import reverse
 from django.conf import settings
 
-import misaka
-
 # Create your models here.
 # Posts model.py
-from django.contrib.auth import get_user_model
-User = get_user_model()
+
+
+class Posts(models.Model):
+    name = models.CharField(max_length = 60)
+    subject = models.CharField(max_length = 255)
+    from_email = models.CharField(max_length = 60)
+    message = models.CharField(max_length = 10000)
+
+    def __str__(self):
+        return self.name
